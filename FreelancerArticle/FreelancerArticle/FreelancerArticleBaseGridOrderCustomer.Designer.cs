@@ -20,9 +20,9 @@ namespace FreelancerArticle {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("FreelancerArticleBaseDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("FreelancerArticleBaseGridOrderCustomer")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class FreelancerArticleBaseDataSet : global::System.Data.DataSet {
+    public partial class FreelancerArticleBaseGridOrderCustomer : global::System.Data.DataSet {
         
         private OrderDataTable tableOrder;
         
@@ -30,7 +30,7 @@ namespace FreelancerArticle {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public FreelancerArticleBaseDataSet() {
+        public FreelancerArticleBaseGridOrderCustomer() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace FreelancerArticle {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected FreelancerArticleBaseDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected FreelancerArticleBaseGridOrderCustomer(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -127,7 +127,7 @@ namespace FreelancerArticle {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            FreelancerArticleBaseDataSet cln = ((FreelancerArticleBaseDataSet)(base.Clone()));
+            FreelancerArticleBaseGridOrderCustomer cln = ((FreelancerArticleBaseGridOrderCustomer)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -199,9 +199,9 @@ namespace FreelancerArticle {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "FreelancerArticleBaseDataSet";
+            this.DataSetName = "FreelancerArticleBaseGridOrderCustomer";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/FreelancerArticleBaseDataSet.xsd";
+            this.Namespace = "http://tempuri.org/FreelancerArticleBaseGridOrderCustomer.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableOrder = new OrderDataTable();
@@ -225,7 +225,7 @@ namespace FreelancerArticle {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            FreelancerArticleBaseDataSet ds = new FreelancerArticleBaseDataSet();
+            FreelancerArticleBaseGridOrderCustomer ds = new FreelancerArticleBaseGridOrderCustomer();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -281,6 +281,8 @@ namespace FreelancerArticle {
             
             private global::System.Data.DataColumn _column__Заказа;
             
+            private global::System.Data.DataColumn columnЗаказчик;
+            
             private global::System.Data.DataColumn columnТема;
             
             private global::System.Data.DataColumn columnНазвание;
@@ -331,6 +333,14 @@ namespace FreelancerArticle {
             public global::System.Data.DataColumn ___ЗаказаColumn {
                 get {
                     return this._column__Заказа;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ЗаказчикColumn {
+                get {
+                    return this.columnЗаказчик;
                 }
             }
             
@@ -419,10 +429,11 @@ namespace FreelancerArticle {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public OrderRow AddOrderRow(int ___Заказа, string Тема, string Название, int Количество_символов, decimal Бюджет, string Назначенный_фрилансер, string Состояние) {
+            public OrderRow AddOrderRow(int ___Заказа, string Заказчик, string Тема, string Название, int Количество_символов, decimal Бюджет, string Назначенный_фрилансер, string Состояние) {
                 OrderRow rowOrderRow = ((OrderRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ___Заказа,
+                        Заказчик,
                         Тема,
                         Название,
                         Количество_символов,
@@ -432,13 +443,6 @@ namespace FreelancerArticle {
                 rowOrderRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowOrderRow);
                 return rowOrderRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public OrderRow FindBy___Заказа(int ___Заказа) {
-                return ((OrderRow)(this.Rows.Find(new object[] {
-                            ___Заказа})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -459,6 +463,7 @@ namespace FreelancerArticle {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
                 this._column__Заказа = base.Columns["№ Заказа"];
+                this.columnЗаказчик = base.Columns["Заказчик"];
                 this.columnТема = base.Columns["Тема"];
                 this.columnНазвание = base.Columns["Название"];
                 this.columnКоличество_символов = base.Columns["Количество символов"];
@@ -474,6 +479,8 @@ namespace FreelancerArticle {
                 this._column__Заказа.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_column__Заказа");
                 this._column__Заказа.ExtendedProperties.Add("Generator_UserColumnName", "№ Заказа");
                 base.Columns.Add(this._column__Заказа);
+                this.columnЗаказчик = new global::System.Data.DataColumn("Заказчик", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnЗаказчик);
                 this.columnТема = new global::System.Data.DataColumn("Тема", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnТема);
                 this.columnНазвание = new global::System.Data.DataColumn("Название", typeof(string), null, global::System.Data.MappingType.Element);
@@ -486,10 +493,9 @@ namespace FreelancerArticle {
                 base.Columns.Add(this.columnНазначенный_фрилансер);
                 this.columnСостояние = new global::System.Data.DataColumn("Состояние", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnСостояние);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this._column__Заказа}, true));
                 this._column__Заказа.AllowDBNull = false;
-                this._column__Заказа.Unique = true;
+                this.columnЗаказчик.AllowDBNull = false;
+                this.columnЗаказчик.MaxLength = 20;
                 this.columnТема.AllowDBNull = false;
                 this.columnТема.MaxLength = 50;
                 this.columnНазвание.MaxLength = 50;
@@ -565,7 +571,7 @@ namespace FreelancerArticle {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                FreelancerArticleBaseDataSet ds = new FreelancerArticleBaseDataSet();
+                FreelancerArticleBaseGridOrderCustomer ds = new FreelancerArticleBaseGridOrderCustomer();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -646,6 +652,17 @@ namespace FreelancerArticle {
                 }
                 set {
                     this[this.tableOrder.___ЗаказаColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Заказчик {
+                get {
+                    return ((string)(this[this.tableOrder.ЗаказчикColumn]));
+                }
+                set {
+                    this[this.tableOrder.ЗаказчикColumn] = value;
                 }
             }
             
@@ -785,7 +802,7 @@ namespace FreelancerArticle {
         }
     }
 }
-namespace FreelancerArticle.FreelancerArticleBaseDataSetTableAdapters {
+namespace FreelancerArticle.FreelancerArticleBaseGridOrderCustomerTableAdapters {
     
     
     /// <summary>
@@ -910,6 +927,7 @@ namespace FreelancerArticle.FreelancerArticleBaseDataSetTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Order";
             tableMapping.ColumnMappings.Add("№ Заказа", "№ Заказа");
+            tableMapping.ColumnMappings.Add("Заказчик", "Заказчик");
             tableMapping.ColumnMappings.Add("Тема", "Тема");
             tableMapping.ColumnMappings.Add("Название", "Название");
             tableMapping.ColumnMappings.Add("Количество символов", "Количество символов");
@@ -919,9 +937,10 @@ namespace FreelancerArticle.FreelancerArticleBaseDataSetTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Order] WHERE (([№ Заказа] = @p2) AND ([Тема] = @Original_Тема) AND ((@IsNull_Название = 1 AND [Название] IS NULL) OR ([Название] = @Original_Название)) AND ([Количество символов] = @Original_Количество_символов) AND ([Бюджет] = @Original_Бюджет) AND ((@IsNull_Назначенный_фрилансер = 1 AND [Назначенный фрилансер] IS NULL) OR ([Назначенный фрилансер] = @Original_Назначенный_фрилансер)) AND ([Состояние] = @Original_Состояние))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Order] WHERE (([№ Заказа] = @p2) AND ([Заказчик] = @Original_Заказчик) AND ([Тема] = @Original_Тема) AND ((@IsNull_Название = 1 AND [Название] IS NULL) OR ([Название] = @Original_Название)) AND ([Количество символов] = @Original_Количество_символов) AND ([Бюджет] = @Original_Бюджет) AND ((@IsNull_Назначенный_фрилансер = 1 AND [Назначенный фрилансер] IS NULL) OR ([Назначенный фрилансер] = @Original_Назначенный_фрилансер)) AND ([Состояние] = @Original_Состояние))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "№ Заказа", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Заказчик", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Заказчик", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Тема", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Тема", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Название", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Название", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Название", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Название", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -930,12 +949,27 @@ namespace FreelancerArticle.FreelancerArticleBaseDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Назначенный_фрилансер", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назначенный фрилансер", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Назначенный_фрилансер", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назначенный фрилансер", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Состояние", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Состояние", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Order] ([№ Заказа], [Заказчик], [Тема], [Название], [Количество символов], [Бюджет], [Назначенный фрилансер], [Состояние]) VALUES (@p1, @Заказчик, @Тема, @Название, @Количество_символов, @Бюджет, @Назначенный_фрилансер, @Состояние);
+SELECT [№ Заказа], Заказчик, Тема, Название, [Количество символов], Бюджет, [Назначенный фрилансер], Состояние FROM [Order] WHERE ([№ Заказа] = @__Заказа)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "№ Заказа", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Заказчик", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Заказчик", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Тема", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Тема", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Название", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Название", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Количество_символов", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Количество символов", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Бюджет", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 9, 2, "Бюджет", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Назначенный_фрилансер", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назначенный фрилансер", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Состояние", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Состояние", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@__Заказа", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "№ Заказа", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Order] SET [№ Заказа] = @p1, [Тема] = @Тема, [Название] = @Название, [Количество символов] = @Количество_символов, [Бюджет] = @Бюджет, [Назначенный фрилансер] = @Назначенный_фрилансер, [Состояние] = @Состояние WHERE (([№ Заказа] = @p2) AND ([Тема] = @Original_Тема) AND ((@IsNull_Название = 1 AND [Название] IS NULL) OR ([Название] = @Original_Название)) AND ([Количество символов] = @Original_Количество_символов) AND ([Бюджет] = @Original_Бюджет) AND ((@IsNull_Назначенный_фрилансер = 1 AND [Назначенный фрилансер] IS NULL) OR ([Назначенный фрилансер] = @Original_Назначенный_фрилансер)) AND ([Состояние] = @Original_Состояние));
-SELECT [№ Заказа], Тема, Название, [Количество символов], Бюджет, [Назначенный фрилансер], Состояние FROM [Order] WHERE ([№ Заказа] = @__Заказа)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Order] SET [№ Заказа] = @p1, [Заказчик] = @Заказчик, [Тема] = @Тема, [Название] = @Название, [Количество символов] = @Количество_символов, [Бюджет] = @Бюджет, [Назначенный фрилансер] = @Назначенный_фрилансер, [Состояние] = @Состояние WHERE (([№ Заказа] = @p2) AND ([Заказчик] = @Original_Заказчик) AND ([Тема] = @Original_Тема) AND ((@IsNull_Название = 1 AND [Название] IS NULL) OR ([Название] = @Original_Название)) AND ([Количество символов] = @Original_Количество_символов) AND ([Бюджет] = @Original_Бюджет) AND ((@IsNull_Назначенный_фрилансер = 1 AND [Назначенный фрилансер] IS NULL) OR ([Назначенный фрилансер] = @Original_Назначенный_фрилансер)) AND ([Состояние] = @Original_Состояние));
+SELECT [№ Заказа], Заказчик, Тема, Название, [Количество символов], Бюджет, [Назначенный фрилансер], Состояние FROM [Order] WHERE ([№ Заказа] = @__Заказа)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "№ Заказа", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Заказчик", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Заказчик", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Тема", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Тема", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Название", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Название", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Количество_символов", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Количество символов", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -943,6 +977,7 @@ SELECT [№ Заказа], Тема, Название, [Количество с�
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Назначенный_фрилансер", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назначенный фрилансер", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Состояние", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Состояние", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "№ Заказа", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Заказчик", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Заказчик", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Тема", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Тема", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Название", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Название", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Название", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Название", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -967,8 +1002,8 @@ SELECT [№ Заказа], Тема, Название, [Количество с�
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT [№ Заказа], Тема, Название, [Количество символов], Бюджет, [Назначенный фр" +
-                "илансер], Состояние FROM dbo.[Order]";
+            this._commandCollection[0].CommandText = "SELECT [№ Заказа], Заказчик, Тема, Название, [Количество символов], Бюджет, [Назн" +
+                "аченный фрилансер], Состояние FROM dbo.[Order]";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -976,7 +1011,7 @@ SELECT [№ Заказа], Тема, Название, [Количество с�
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(FreelancerArticleBaseDataSet.OrderDataTable dataTable) {
+        public virtual int Fill(FreelancerArticleBaseGridOrderCustomer.OrderDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -989,9 +1024,9 @@ SELECT [№ Заказа], Тема, Название, [Количество с�
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual FreelancerArticleBaseDataSet.OrderDataTable GetData() {
+        public virtual FreelancerArticleBaseGridOrderCustomer.OrderDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            FreelancerArticleBaseDataSet.OrderDataTable dataTable = new FreelancerArticleBaseDataSet.OrderDataTable();
+            FreelancerArticleBaseGridOrderCustomer.OrderDataTable dataTable = new FreelancerArticleBaseGridOrderCustomer.OrderDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -999,14 +1034,14 @@ SELECT [№ Заказа], Тема, Название, [Количество с�
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(FreelancerArticleBaseDataSet.OrderDataTable dataTable) {
+        public virtual int Update(FreelancerArticleBaseGridOrderCustomer.OrderDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(FreelancerArticleBaseDataSet dataSet) {
+        public virtual int Update(FreelancerArticleBaseGridOrderCustomer dataSet) {
             return this.Adapter.Update(dataSet, "Order");
         }
         
@@ -1029,37 +1064,43 @@ SELECT [№ Заказа], Тема, Название, [Количество с�
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int p2, string Original_Тема, string Original_Название, int Original_Количество_символов, decimal Original_Бюджет, string Original_Назначенный_фрилансер, string Original_Состояние) {
+        public virtual int Delete(int p2, string Original_Заказчик, string Original_Тема, string Original_Название, int Original_Количество_символов, decimal Original_Бюджет, string Original_Назначенный_фрилансер, string Original_Состояние) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(p2));
+            if ((Original_Заказчик == null)) {
+                throw new global::System.ArgumentNullException("Original_Заказчик");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_Заказчик));
+            }
             if ((Original_Тема == null)) {
                 throw new global::System.ArgumentNullException("Original_Тема");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_Тема));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Тема));
             }
             if ((Original_Название == null)) {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_Название));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Название));
             }
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_Количество_символов));
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((decimal)(Original_Бюджет));
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_Количество_символов));
+            this.Adapter.DeleteCommand.Parameters[6].Value = ((decimal)(Original_Бюджет));
             if ((Original_Назначенный_фрилансер == null)) {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_Назначенный_фрилансер));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Назначенный_фрилансер));
             }
             if ((Original_Состояние == null)) {
                 throw new global::System.ArgumentNullException("Original_Состояние");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Состояние));
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_Состояние));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1080,67 +1121,151 @@ SELECT [№ Заказа], Тема, Название, [Количество с�
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int p1, string Тема, string Название, int Количество_символов, decimal Бюджет, string Назначенный_фрилансер, string Состояние, int p2, string Original_Тема, string Original_Название, int Original_Количество_символов, decimal Original_Бюджет, string Original_Назначенный_фрилансер, string Original_Состояние, int @__Заказа) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(p1));
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(int p1, string Заказчик, string Тема, string Название, int Количество_символов, decimal Бюджет, string Назначенный_фрилансер, string Состояние, int @__Заказа) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(p1));
+            if ((Заказчик == null)) {
+                throw new global::System.ArgumentNullException("Заказчик");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Заказчик));
+            }
             if ((Тема == null)) {
                 throw new global::System.ArgumentNullException("Тема");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Тема));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Тема));
             }
             if ((Название == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Название));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Название));
             }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Количество_символов));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(Бюджет));
+            this.Adapter.InsertCommand.Parameters[4].Value = ((int)(Количество_символов));
+            this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(Бюджет));
             if ((Назначенный_фрилансер == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Назначенный_фрилансер));
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Назначенный_фрилансер));
             }
             if ((Состояние == null)) {
                 throw new global::System.ArgumentNullException("Состояние");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Состояние));
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Состояние));
             }
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(p2));
+            this.Adapter.InsertCommand.Parameters[8].Value = ((int)(@__Заказа));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    int p1, 
+                    string Заказчик, 
+                    string Тема, 
+                    string Название, 
+                    int Количество_символов, 
+                    decimal Бюджет, 
+                    string Назначенный_фрилансер, 
+                    string Состояние, 
+                    int p2, 
+                    string Original_Заказчик, 
+                    string Original_Тема, 
+                    string Original_Название, 
+                    int Original_Количество_символов, 
+                    decimal Original_Бюджет, 
+                    string Original_Назначенный_фрилансер, 
+                    string Original_Состояние, 
+                    int @__Заказа) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(p1));
+            if ((Заказчик == null)) {
+                throw new global::System.ArgumentNullException("Заказчик");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Заказчик));
+            }
+            if ((Тема == null)) {
+                throw new global::System.ArgumentNullException("Тема");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Тема));
+            }
+            if ((Название == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Название));
+            }
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Количество_символов));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(Бюджет));
+            if ((Назначенный_фрилансер == null)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Назначенный_фрилансер));
+            }
+            if ((Состояние == null)) {
+                throw new global::System.ArgumentNullException("Состояние");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Состояние));
+            }
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(p2));
+            if ((Original_Заказчик == null)) {
+                throw new global::System.ArgumentNullException("Original_Заказчик");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Заказчик));
+            }
             if ((Original_Тема == null)) {
                 throw new global::System.ArgumentNullException("Original_Тема");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Тема));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Тема));
             }
             if ((Original_Название == null)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Название));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Название));
             }
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_Количество_символов));
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((decimal)(Original_Бюджет));
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_Количество_символов));
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((decimal)(Original_Бюджет));
             if ((Original_Назначенный_фрилансер == null)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_Назначенный_фрилансер));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_Назначенный_фрилансер));
             }
             if ((Original_Состояние == null)) {
                 throw new global::System.ArgumentNullException("Original_Состояние");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_Состояние));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_Состояние));
             }
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(@__Заказа));
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(@__Заказа));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1155,14 +1280,6 @@ SELECT [№ Заказа], Тема, Название, [Количество с�
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Тема, string Название, int Количество_символов, decimal Бюджет, string Назначенный_фрилансер, string Состояние, int p2, string Original_Тема, string Original_Название, int Original_Количество_символов, decimal Original_Бюджет, string Original_Назначенный_фрилансер, string Original_Состояние) {
-            return this.Update(p2, Тема, Название, Количество_символов, Бюджет, Назначенный_фрилансер, Состояние, p2, Original_Тема, Original_Название, Original_Количество_символов, Original_Бюджет, Original_Назначенный_фрилансер, Original_Состояние, p2);
         }
     }
     
@@ -1257,7 +1374,7 @@ SELECT [№ Заказа], Тема, Название, [Количество с�
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateUpdatedRows(FreelancerArticleBaseDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(FreelancerArticleBaseGridOrderCustomer dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._orderTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Order.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -1276,7 +1393,7 @@ SELECT [№ Заказа], Тема, Название, [Количество с�
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateInsertedRows(FreelancerArticleBaseDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(FreelancerArticleBaseGridOrderCustomer dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._orderTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Order.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -1294,7 +1411,7 @@ SELECT [№ Заказа], Тема, Название, [Количество с�
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateDeletedRows(FreelancerArticleBaseDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(FreelancerArticleBaseGridOrderCustomer dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._orderTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Order.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -1336,7 +1453,7 @@ SELECT [№ Заказа], Тема, Название, [Количество с�
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public virtual int UpdateAll(FreelancerArticleBaseDataSet dataSet) {
+        public virtual int UpdateAll(FreelancerArticleBaseGridOrderCustomer dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

@@ -60,99 +60,110 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Customer.cs" />
-    <Compile Include="FormFreelancer.cs">
+    <Compile Include="Class\Customer.cs" />
+    <Compile Include="Forms\FormFreelancer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormFreelancer.Designer.cs">
+    <Compile Include="Forms\FormFreelancer.Designer.cs">
       <DependentUpon>FormFreelancer.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormMessageForModerator.cs">
+    <Compile Include="Forms\FormMessageForModerator.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormMessageForModerator.Designer.cs">
+    <Compile Include="Forms\FormMessageForModerator.Designer.cs">
       <DependentUpon>FormMessageForModerator.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormModerator.cs">
+    <Compile Include="Forms\FormModerator.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormModerator.Designer.cs">
+    <Compile Include="Forms\FormModerator.Designer.cs">
       <DependentUpon>FormModerator.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormOrderForFreelancer.cs">
+    <Compile Include="Forms\FormOrderForFreelancer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormOrderForFreelancer.Designer.cs">
+    <Compile Include="Forms\FormOrderForFreelancer.Designer.cs">
       <DependentUpon>FormOrderForFreelancer.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormClient.cs">
+    <Compile Include="Forms\FormClient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormClient.Designer.cs">
+    <Compile Include="Forms\FormClient.Designer.cs">
       <DependentUpon>FormClient.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormLogin.cs">
+    <Compile Include="Forms\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormLogin.Designer.cs">
+    <Compile Include="Forms\FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormOrder.cs">
+    <Compile Include="Forms\FormOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormOrder.Designer.cs">
+    <Compile Include="Forms\FormOrder.Designer.cs">
       <DependentUpon>FormOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPurse.cs">
+    <Compile Include="Forms\FormPurse.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPurse.Designer.cs">
+    <Compile Include="Forms\FormPurse.Designer.cs">
       <DependentUpon>FormPurse.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormRegistration.cs">
+    <Compile Include="Forms\FormRegistration.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormRegistration.Designer.cs">
+    <Compile Include="Forms\FormRegistration.Designer.cs">
       <DependentUpon>FormRegistration.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormReview.cs">
+    <Compile Include="Forms\FormReview.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormReview.Designer.cs">
+    <Compile Include="Forms\FormReview.Designer.cs">
       <DependentUpon>FormReview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FreelancerArticleBaseGridOrderCustomer.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FreelancerArticleBaseGridOrderCustomer.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FreelancerArticleBaseGridOrderFreelancer.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FreelancerArticleBaseGridOrderFreelancer.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User.cs" />
-    <Compile Include="Wallet.cs" />
-    <EmbeddedResource Include="FormClient.resx">
+    <Compile Include="Class\User.cs" />
+    <Compile Include="Class\Wallet.cs" />
+    <EmbeddedResource Include="Forms\FormClient.resx">
       <DependentUpon>FormClient.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormFreelancer.resx">
+    <EmbeddedResource Include="Forms\FormFreelancer.resx">
       <DependentUpon>FormFreelancer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormLogin.resx">
+    <EmbeddedResource Include="Forms\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormMessageForModerator.resx">
+    <EmbeddedResource Include="Forms\FormMessageForModerator.resx">
       <DependentUpon>FormMessageForModerator.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormModerator.resx">
+    <EmbeddedResource Include="Forms\FormModerator.resx">
       <DependentUpon>FormModerator.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormOrder.resx">
+    <EmbeddedResource Include="Forms\FormOrder.resx">
       <DependentUpon>FormOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormOrderForFreelancer.resx">
+    <EmbeddedResource Include="Forms\FormOrderForFreelancer.resx">
       <DependentUpon>FormOrderForFreelancer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPurse.resx">
+    <EmbeddedResource Include="Forms\FormPurse.resx">
       <DependentUpon>FormPurse.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormRegistration.resx">
+    <EmbeddedResource Include="Forms\FormRegistration.resx">
       <DependentUpon>FormRegistration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormReview.resx">
+    <EmbeddedResource Include="Forms\FormReview.resx">
       <DependentUpon>FormReview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -164,9 +175,32 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="FreelancerArticleBaseGridOrderCustomer.xsc">
+      <DependentUpon>FreelancerArticleBaseGridOrderCustomer.xsd</DependentUpon>
+    </None>
+    <None Include="FreelancerArticleBaseGridOrderCustomer.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FreelancerArticleBaseGridOrderCustomer.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FreelancerArticleBaseGridOrderCustomer.xss">
+      <DependentUpon>FreelancerArticleBaseGridOrderCustomer.xsd</DependentUpon>
+    </None>
+    <None Include="FreelancerArticleBaseGridOrderFreelancer.xsc">
+      <DependentUpon>FreelancerArticleBaseGridOrderFreelancer.xsd</DependentUpon>
+    </None>
+    <None Include="FreelancerArticleBaseGridOrderFreelancer.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FreelancerArticleBaseGridOrderFreelancer.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FreelancerArticleBaseGridOrderFreelancer.xss">
+      <DependentUpon>FreelancerArticleBaseGridOrderFreelancer.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -175,13 +209,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="FreelancerArticleBase.mdf">
+    <Content Include="Database\FreelancerArticleBase.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="FreelancerArticleBase_log.ldf">
+    <Content Include="Database\FreelancerArticleBase_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>FreelancerArticleBase.mdf</DependentUpon>
     </Content>

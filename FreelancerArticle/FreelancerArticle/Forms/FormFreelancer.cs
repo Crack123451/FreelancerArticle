@@ -35,6 +35,10 @@ namespace FreelancerArticle
 
         private async void FormFreelancer_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "freelancerArticleBaseGridOrderFreelancer.Order". При необходимости она может быть перемещена или удалена.
+            this.orderTableAdapter.Fill(this.freelancerArticleBaseGridOrderFreelancer.Order);
+            orderBindingSource.Filter = "([Назначенный фрилансер] IS NULL) OR ([Назначенный фрилансер]='" + Login + "')";
+
             SqlDataReader sqlReader = null;
             SqlConnection sqlConnection = User.EnterToDatabase();
             await sqlConnection.OpenAsync();

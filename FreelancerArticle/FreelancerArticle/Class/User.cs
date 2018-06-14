@@ -15,7 +15,7 @@ namespace FreelancerArticle
 
         public static SqlConnection EnterToDatabase()
         {
-            string stringConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\FreelancerArticleBase.mdf;Integrated Security=True";
+            string stringConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database\FreelancerArticleBase.mdf;Integrated Security=True";
             return sqlConnection = new SqlConnection(stringConnection);       
         }
 

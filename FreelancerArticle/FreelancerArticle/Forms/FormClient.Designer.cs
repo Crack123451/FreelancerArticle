@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBoxInfoAboutYou = new System.Windows.Forms.GroupBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.textBoxLastName = new System.Windows.Forms.TextBox();
@@ -67,11 +68,23 @@
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.freelancerArticleBaseGridOrderCustomer = new FreelancerArticle.FreelancerArticleBaseGridOrderCustomer();
+            this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.orderTableAdapter = new FreelancerArticle.FreelancerArticleBaseGridOrderCustomerTableAdapters.OrderTableAdapter();
+            this.заказаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.темаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.названиеDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.количествоСимволовDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.бюджетDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.назначенныйФрилансерDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.состояниеDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxInfoAboutYou.SuspendLayout();
             this.groupBoxInfoAboutFreelancer.SuspendLayout();
             this.groupBoxYouWallet.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.freelancerArticleBaseGridOrderCustomer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxInfoAboutYou
@@ -440,13 +453,100 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.заказаDataGridViewTextBoxColumn,
+            this.темаDataGridViewTextBoxColumn,
+            this.названиеDataGridViewTextBoxColumn,
+            this.количествоСимволовDataGridViewTextBoxColumn,
+            this.бюджетDataGridViewTextBoxColumn,
+            this.назначенныйФрилансерDataGridViewTextBoxColumn,
+            this.состояниеDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.orderBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(22, 300);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(913, 264);
             this.dataGridView1.TabIndex = 18;
+            // 
+            // freelancerArticleBaseGridOrderCustomer
+            // 
+            this.freelancerArticleBaseGridOrderCustomer.DataSetName = "FreelancerArticleBaseGridOrderCustomer";
+            this.freelancerArticleBaseGridOrderCustomer.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // orderBindingSource
+            // 
+            this.orderBindingSource.DataMember = "Order";
+            this.orderBindingSource.DataSource = this.freelancerArticleBaseGridOrderCustomer;
+            // 
+            // orderTableAdapter
+            // 
+            this.orderTableAdapter.ClearBeforeFill = true;
+            // 
+            // заказаDataGridViewTextBoxColumn
+            // 
+            this.заказаDataGridViewTextBoxColumn.DataPropertyName = "№ Заказа";
+            this.заказаDataGridViewTextBoxColumn.Frozen = true;
+            this.заказаDataGridViewTextBoxColumn.HeaderText = "№ Заказа";
+            this.заказаDataGridViewTextBoxColumn.Name = "заказаDataGridViewTextBoxColumn";
+            this.заказаDataGridViewTextBoxColumn.ReadOnly = true;
+            this.заказаDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // темаDataGridViewTextBoxColumn
+            // 
+            this.темаDataGridViewTextBoxColumn.DataPropertyName = "Тема";
+            this.темаDataGridViewTextBoxColumn.Frozen = true;
+            this.темаDataGridViewTextBoxColumn.HeaderText = "Тема";
+            this.темаDataGridViewTextBoxColumn.Name = "темаDataGridViewTextBoxColumn";
+            this.темаDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // названиеDataGridViewTextBoxColumn
+            // 
+            this.названиеDataGridViewTextBoxColumn.DataPropertyName = "Название";
+            this.названиеDataGridViewTextBoxColumn.Frozen = true;
+            this.названиеDataGridViewTextBoxColumn.HeaderText = "Название";
+            this.названиеDataGridViewTextBoxColumn.Name = "названиеDataGridViewTextBoxColumn";
+            this.названиеDataGridViewTextBoxColumn.ReadOnly = true;
+            this.названиеDataGridViewTextBoxColumn.Width = 160;
+            // 
+            // количествоСимволовDataGridViewTextBoxColumn
+            // 
+            this.количествоСимволовDataGridViewTextBoxColumn.DataPropertyName = "Количество символов";
+            this.количествоСимволовDataGridViewTextBoxColumn.Frozen = true;
+            this.количествоСимволовDataGridViewTextBoxColumn.HeaderText = "Кол-во символов";
+            this.количествоСимволовDataGridViewTextBoxColumn.Name = "количествоСимволовDataGridViewTextBoxColumn";
+            this.количествоСимволовDataGridViewTextBoxColumn.ReadOnly = true;
+            this.количествоСимволовDataGridViewTextBoxColumn.Width = 60;
+            // 
+            // бюджетDataGridViewTextBoxColumn
+            // 
+            this.бюджетDataGridViewTextBoxColumn.DataPropertyName = "Бюджет";
+            this.бюджетDataGridViewTextBoxColumn.Frozen = true;
+            this.бюджетDataGridViewTextBoxColumn.HeaderText = "Бюджет";
+            this.бюджетDataGridViewTextBoxColumn.Name = "бюджетDataGridViewTextBoxColumn";
+            this.бюджетDataGridViewTextBoxColumn.ReadOnly = true;
+            this.бюджетDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // назначенныйФрилансерDataGridViewTextBoxColumn
+            // 
+            this.назначенныйФрилансерDataGridViewTextBoxColumn.DataPropertyName = "Назначенный фрилансер";
+            this.назначенныйФрилансерDataGridViewTextBoxColumn.Frozen = true;
+            this.назначенныйФрилансерDataGridViewTextBoxColumn.HeaderText = "Назначенный фрилансер";
+            this.назначенныйФрилансерDataGridViewTextBoxColumn.Name = "назначенныйФрилансерDataGridViewTextBoxColumn";
+            this.назначенныйФрилансерDataGridViewTextBoxColumn.ReadOnly = true;
+            this.назначенныйФрилансерDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // состояниеDataGridViewTextBoxColumn
+            // 
+            this.состояниеDataGridViewTextBoxColumn.DataPropertyName = "Состояние";
+            this.состояниеDataGridViewTextBoxColumn.Frozen = true;
+            this.состояниеDataGridViewTextBoxColumn.HeaderText = "Состояние";
+            this.состояниеDataGridViewTextBoxColumn.Name = "состояниеDataGridViewTextBoxColumn";
+            this.состояниеDataGridViewTextBoxColumn.ReadOnly = true;
+            this.состояниеDataGridViewTextBoxColumn.Width = 140;
             // 
             // FormClient
             // 
@@ -481,6 +581,8 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.freelancerArticleBaseGridOrderCustomer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -527,5 +629,15 @@
         private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
         internal System.Windows.Forms.TextBox textBoxSumWallet;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private FreelancerArticleBaseGridOrderCustomer freelancerArticleBaseGridOrderCustomer;
+        private System.Windows.Forms.BindingSource orderBindingSource;
+        private FreelancerArticleBaseGridOrderCustomerTableAdapters.OrderTableAdapter orderTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn заказаDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn темаDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn названиеDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn количествоСимволовDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn бюджетDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn назначенныйФрилансерDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn состояниеDataGridViewTextBoxColumn;
     }
 }

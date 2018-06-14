@@ -49,6 +49,10 @@ namespace FreelancerArticle
 
         private async void FormClient_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "freelancerArticleBaseGridOrderCustomer.Order". При необходимости она может быть перемещена или удалена.
+            this.orderTableAdapter.Fill(this.freelancerArticleBaseGridOrderCustomer.Order);
+            orderBindingSource.Filter = "Заказчик='" + Login + "'";
+
             SqlDataReader sqlReader = null;
             SqlConnection sqlConnection = User.EnterToDatabase();
             await sqlConnection.OpenAsync();
