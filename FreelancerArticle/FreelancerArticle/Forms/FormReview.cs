@@ -12,14 +12,16 @@ namespace FreelancerArticle
 {
     public partial class FormReview : Form
     {
-        public FormReview()
+        string LoginFreelancer;
+        public FormReview(string loginFreelancer)
         {
+            LoginFreelancer = loginFreelancer;
             InitializeComponent();
         }
 
-        private void buttonOK_Click(object sender, EventArgs e)
+        private void buttonNext_Click(object sender, EventArgs e)
         {
-            this.Close();
+
         }
     }
 }

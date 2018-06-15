@@ -49,6 +49,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -61,6 +62,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\Customer.cs" />
+    <Compile Include="Class\Feedback.cs" />
+    <Compile Include="Forms\FormInfoAboutFreelancer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormInfoAboutFreelancer.Designer.cs">
+      <DependentUpon>FormInfoAboutFreelancer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormFreelancer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +143,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Class\User.cs" />
     <Compile Include="Class\Wallet.cs" />
+    <EmbeddedResource Include="Forms\FormInfoAboutFreelancer.resx">
+      <DependentUpon>FormInfoAboutFreelancer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormClient.resx">
       <DependentUpon>FormClient.cs</DependentUpon>
       <SubType>Designer</SubType>

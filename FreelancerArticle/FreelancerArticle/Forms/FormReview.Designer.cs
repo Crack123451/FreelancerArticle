@@ -28,30 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.buttonOK = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.buttonNext = new System.Windows.Forms.Button();
+            this.textBoxReview = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // buttonNext
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 34);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(355, 176);
-            this.dataGridView1.TabIndex = 0;
+            this.buttonNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonNext.Location = new System.Drawing.Point(120, 222);
+            this.buttonNext.Name = "buttonNext";
+            this.buttonNext.Size = new System.Drawing.Size(139, 45);
+            this.buttonNext.TabIndex = 1;
+            this.buttonNext.Text = "Следующий";
+            this.buttonNext.UseVisualStyleBackColor = true;
+            this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
             // 
-            // buttonOK
+            // textBoxReview
             // 
-            this.buttonOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonOK.Location = new System.Drawing.Point(127, 222);
-            this.buttonOK.Name = "buttonOK";
-            this.buttonOK.Size = new System.Drawing.Size(136, 35);
-            this.buttonOK.TabIndex = 1;
-            this.buttonOK.Text = "Ок";
-            this.buttonOK.UseVisualStyleBackColor = true;
-            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
+            this.textBoxReview.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxReview.Location = new System.Drawing.Point(12, 12);
+            this.textBoxReview.Multiline = true;
+            this.textBoxReview.Name = "textBoxReview";
+            this.textBoxReview.Size = new System.Drawing.Size(355, 204);
+            this.textBoxReview.TabIndex = 2;
             // 
             // FormReview
             // 
@@ -59,21 +58,20 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(379, 279);
-            this.Controls.Add(this.buttonOK);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.textBoxReview);
+            this.Controls.Add(this.buttonNext);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.Name = "FormReview";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Отзывы";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button buttonOK;
+        private System.Windows.Forms.Button buttonNext;
+        private System.Windows.Forms.TextBox textBoxReview;
     }
 }

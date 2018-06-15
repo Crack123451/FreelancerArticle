@@ -35,8 +35,11 @@ namespace FreelancerArticle
 
         private void buttonReviews_Click(object sender, EventArgs e)
         {
-            var f = new FormReview();
-            f.Show();
+            if (listBoxFeedback.Items.Count != 0)
+            {
+                var f = new FormReview(listBoxFeedback.SelectedItem.ToString());
+                f.ShowDialog();
+            }
         }
 
         private void сменитьПользователяToolStripMenuItem_Click(object sender, EventArgs e)
@@ -86,6 +89,43 @@ namespace FreelancerArticle
             {
                 if (sqlReader != null)
                     sqlReader.Close();
+            }
+        }
+
+        private async void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            listBoxFeedback.Items.Clear();
+            var numberOrder = dataGridView1.SelectedCells[0].OwningRow.Cells[0].Value.ToString();
+
+            SqlDataReader sqlReader = null;
+            SqlConnection sqlConnection = User.EnterToDatabase();
+            await sqlConnection.OpenAsync();
+            SqlCommand commandListBoxFreelancer = Feedback.RequestFreelancerByOrder(numberOrder);
+            try
+            {
+                sqlReader = await commandListBoxFreelancer.ExecuteReaderAsync();
+                while (await sqlReader.ReadAsync())
+                {
+                    listBoxFeedback.Items.Add(sqlReader["Фрилансер"].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (sqlReader != null)
+                    sqlReader.Close();
+            }
+        }
+
+        private void buttonChoose_Click(object sender, EventArgs e)
+        {
+            if (listBoxFeedback.Items.Count!=0)
+            {
+                var f = new FormInfoAboutFreelancer(listBoxFeedback.SelectedItem.ToString());
+                f.ShowDialog();
             }
         }
     }

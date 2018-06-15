@@ -39,16 +39,9 @@
             this.labelName = new System.Windows.Forms.Label();
             this.labelLogin = new System.Windows.Forms.Label();
             this.groupBoxInfoAboutFreelancer = new System.Windows.Forms.GroupBox();
+            this.listBoxFeedback = new System.Windows.Forms.ListBox();
             this.buttonChoose = new System.Windows.Forms.Button();
             this.buttonReviews = new System.Windows.Forms.Button();
-            this.textBoxNameFree = new System.Windows.Forms.TextBox();
-            this.textBoxLastNameFree = new System.Windows.Forms.TextBox();
-            this.textBoxPatronymicFree = new System.Windows.Forms.TextBox();
-            this.textBoxLoginFree = new System.Windows.Forms.TextBox();
-            this.labelPatronymicFree = new System.Windows.Forms.Label();
-            this.labelLastNameFree = new System.Windows.Forms.Label();
-            this.labelNameFree = new System.Windows.Forms.Label();
-            this.labelLoginFree = new System.Windows.Forms.Label();
             this.groupBoxYouWallet = new System.Windows.Forms.GroupBox();
             this.buttonMoney = new System.Windows.Forms.Button();
             this.textBoxSumWallet = new System.Windows.Forms.TextBox();
@@ -68,9 +61,6 @@
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.freelancerArticleBaseGridOrderCustomer = new FreelancerArticle.FreelancerArticleBaseGridOrderCustomer();
-            this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.orderTableAdapter = new FreelancerArticle.FreelancerArticleBaseGridOrderCustomerTableAdapters.OrderTableAdapter();
             this.заказаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.темаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.названиеDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,13 +68,16 @@
             this.бюджетDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.назначенныйФрилансерDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.состояниеDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.freelancerArticleBaseGridOrderCustomer = new FreelancerArticle.FreelancerArticleBaseGridOrderCustomer();
+            this.orderTableAdapter = new FreelancerArticle.FreelancerArticleBaseGridOrderCustomerTableAdapters.OrderTableAdapter();
             this.groupBoxInfoAboutYou.SuspendLayout();
             this.groupBoxInfoAboutFreelancer.SuspendLayout();
             this.groupBoxYouWallet.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.freelancerArticleBaseGridOrderCustomer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.freelancerArticleBaseGridOrderCustomer)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxInfoAboutYou
@@ -175,110 +168,46 @@
             // 
             // groupBoxInfoAboutFreelancer
             // 
+            this.groupBoxInfoAboutFreelancer.Controls.Add(this.listBoxFeedback);
             this.groupBoxInfoAboutFreelancer.Controls.Add(this.buttonChoose);
             this.groupBoxInfoAboutFreelancer.Controls.Add(this.buttonReviews);
-            this.groupBoxInfoAboutFreelancer.Controls.Add(this.textBoxNameFree);
-            this.groupBoxInfoAboutFreelancer.Controls.Add(this.textBoxLastNameFree);
-            this.groupBoxInfoAboutFreelancer.Controls.Add(this.textBoxPatronymicFree);
-            this.groupBoxInfoAboutFreelancer.Controls.Add(this.textBoxLoginFree);
-            this.groupBoxInfoAboutFreelancer.Controls.Add(this.labelPatronymicFree);
-            this.groupBoxInfoAboutFreelancer.Controls.Add(this.labelLastNameFree);
-            this.groupBoxInfoAboutFreelancer.Controls.Add(this.labelNameFree);
-            this.groupBoxInfoAboutFreelancer.Controls.Add(this.labelLoginFree);
             this.groupBoxInfoAboutFreelancer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBoxInfoAboutFreelancer.Location = new System.Drawing.Point(351, 42);
             this.groupBoxInfoAboutFreelancer.Name = "groupBoxInfoAboutFreelancer";
             this.groupBoxInfoAboutFreelancer.Size = new System.Drawing.Size(255, 252);
             this.groupBoxInfoAboutFreelancer.TabIndex = 1;
             this.groupBoxInfoAboutFreelancer.TabStop = false;
-            this.groupBoxInfoAboutFreelancer.Text = "Информация о Фрилансере";
+            this.groupBoxInfoAboutFreelancer.Text = "Отклики на заказ";
+            // 
+            // listBoxFeedback
+            // 
+            this.listBoxFeedback.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listBoxFeedback.FormattingEnabled = true;
+            this.listBoxFeedback.ItemHeight = 22;
+            this.listBoxFeedback.Location = new System.Drawing.Point(23, 31);
+            this.listBoxFeedback.Name = "listBoxFeedback";
+            this.listBoxFeedback.Size = new System.Drawing.Size(209, 114);
+            this.listBoxFeedback.TabIndex = 7;
             // 
             // buttonChoose
             // 
-            this.buttonChoose.Location = new System.Drawing.Point(32, 211);
+            this.buttonChoose.Location = new System.Drawing.Point(14, 204);
             this.buttonChoose.Name = "buttonChoose";
-            this.buttonChoose.Size = new System.Drawing.Size(199, 34);
+            this.buttonChoose.Size = new System.Drawing.Size(226, 34);
             this.buttonChoose.TabIndex = 6;
-            this.buttonChoose.Text = "Выбрать фрилансера";
+            this.buttonChoose.Text = "Подробнее о фрилансере";
             this.buttonChoose.UseVisualStyleBackColor = true;
+            this.buttonChoose.Click += new System.EventHandler(this.buttonChoose_Click);
             // 
             // buttonReviews
             // 
-            this.buttonReviews.Location = new System.Drawing.Point(71, 173);
+            this.buttonReviews.Location = new System.Drawing.Point(70, 166);
             this.buttonReviews.Name = "buttonReviews";
             this.buttonReviews.Size = new System.Drawing.Size(121, 32);
             this.buttonReviews.TabIndex = 5;
             this.buttonReviews.Text = "Отзывы";
             this.buttonReviews.UseVisualStyleBackColor = true;
             this.buttonReviews.Click += new System.EventHandler(this.buttonReviews_Click);
-            // 
-            // textBoxNameFree
-            // 
-            this.textBoxNameFree.Location = new System.Drawing.Point(91, 64);
-            this.textBoxNameFree.Name = "textBoxNameFree";
-            this.textBoxNameFree.ReadOnly = true;
-            this.textBoxNameFree.Size = new System.Drawing.Size(158, 24);
-            this.textBoxNameFree.TabIndex = 2;
-            // 
-            // textBoxLastNameFree
-            // 
-            this.textBoxLastNameFree.Location = new System.Drawing.Point(91, 97);
-            this.textBoxLastNameFree.Name = "textBoxLastNameFree";
-            this.textBoxLastNameFree.ReadOnly = true;
-            this.textBoxLastNameFree.Size = new System.Drawing.Size(158, 24);
-            this.textBoxLastNameFree.TabIndex = 3;
-            // 
-            // textBoxPatronymicFree
-            // 
-            this.textBoxPatronymicFree.Location = new System.Drawing.Point(91, 130);
-            this.textBoxPatronymicFree.Name = "textBoxPatronymicFree";
-            this.textBoxPatronymicFree.ReadOnly = true;
-            this.textBoxPatronymicFree.Size = new System.Drawing.Size(158, 24);
-            this.textBoxPatronymicFree.TabIndex = 2;
-            // 
-            // textBoxLoginFree
-            // 
-            this.textBoxLoginFree.Location = new System.Drawing.Point(91, 31);
-            this.textBoxLoginFree.Name = "textBoxLoginFree";
-            this.textBoxLoginFree.ReadOnly = true;
-            this.textBoxLoginFree.Size = new System.Drawing.Size(158, 24);
-            this.textBoxLoginFree.TabIndex = 1;
-            // 
-            // labelPatronymicFree
-            // 
-            this.labelPatronymicFree.AutoSize = true;
-            this.labelPatronymicFree.Location = new System.Drawing.Point(6, 130);
-            this.labelPatronymicFree.Name = "labelPatronymicFree";
-            this.labelPatronymicFree.Size = new System.Drawing.Size(75, 18);
-            this.labelPatronymicFree.TabIndex = 4;
-            this.labelPatronymicFree.Text = "Отчество";
-            // 
-            // labelLastNameFree
-            // 
-            this.labelLastNameFree.AutoSize = true;
-            this.labelLastNameFree.Location = new System.Drawing.Point(6, 97);
-            this.labelLastNameFree.Name = "labelLastNameFree";
-            this.labelLastNameFree.Size = new System.Drawing.Size(73, 18);
-            this.labelLastNameFree.TabIndex = 3;
-            this.labelLastNameFree.Text = "Фамилия";
-            // 
-            // labelNameFree
-            // 
-            this.labelNameFree.AutoSize = true;
-            this.labelNameFree.Location = new System.Drawing.Point(6, 64);
-            this.labelNameFree.Name = "labelNameFree";
-            this.labelNameFree.Size = new System.Drawing.Size(38, 18);
-            this.labelNameFree.TabIndex = 2;
-            this.labelNameFree.Text = "Имя";
-            // 
-            // labelLoginFree
-            // 
-            this.labelLoginFree.AutoSize = true;
-            this.labelLoginFree.Location = new System.Drawing.Point(6, 31);
-            this.labelLoginFree.Name = "labelLoginFree";
-            this.labelLoginFree.Size = new System.Drawing.Size(50, 18);
-            this.labelLoginFree.TabIndex = 1;
-            this.labelLoginFree.Text = "Логин";
             // 
             // groupBoxYouWallet
             // 
@@ -471,20 +400,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(913, 264);
             this.dataGridView1.TabIndex = 18;
-            // 
-            // freelancerArticleBaseGridOrderCustomer
-            // 
-            this.freelancerArticleBaseGridOrderCustomer.DataSetName = "FreelancerArticleBaseGridOrderCustomer";
-            this.freelancerArticleBaseGridOrderCustomer.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // orderBindingSource
-            // 
-            this.orderBindingSource.DataMember = "Order";
-            this.orderBindingSource.DataSource = this.freelancerArticleBaseGridOrderCustomer;
-            // 
-            // orderTableAdapter
-            // 
-            this.orderTableAdapter.ClearBeforeFill = true;
+            this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             // 
             // заказаDataGridViewTextBoxColumn
             // 
@@ -548,6 +464,20 @@
             this.состояниеDataGridViewTextBoxColumn.ReadOnly = true;
             this.состояниеDataGridViewTextBoxColumn.Width = 140;
             // 
+            // orderBindingSource
+            // 
+            this.orderBindingSource.DataMember = "Order";
+            this.orderBindingSource.DataSource = this.freelancerArticleBaseGridOrderCustomer;
+            // 
+            // freelancerArticleBaseGridOrderCustomer
+            // 
+            this.freelancerArticleBaseGridOrderCustomer.DataSetName = "FreelancerArticleBaseGridOrderCustomer";
+            this.freelancerArticleBaseGridOrderCustomer.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // orderTableAdapter
+            // 
+            this.orderTableAdapter.ClearBeforeFill = true;
+            // 
             // FormClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -575,14 +505,13 @@
             this.groupBoxInfoAboutYou.ResumeLayout(false);
             this.groupBoxInfoAboutYou.PerformLayout();
             this.groupBoxInfoAboutFreelancer.ResumeLayout(false);
-            this.groupBoxInfoAboutFreelancer.PerformLayout();
             this.groupBoxYouWallet.ResumeLayout(false);
             this.groupBoxYouWallet.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.freelancerArticleBaseGridOrderCustomer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.freelancerArticleBaseGridOrderCustomer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -600,14 +529,6 @@
         private System.Windows.Forms.TextBox textBoxLastName;
         private System.Windows.Forms.TextBox textBoxPatronymic;
         private System.Windows.Forms.GroupBox groupBoxInfoAboutFreelancer;
-        private System.Windows.Forms.TextBox textBoxNameFree;
-        private System.Windows.Forms.TextBox textBoxLastNameFree;
-        private System.Windows.Forms.TextBox textBoxPatronymicFree;
-        private System.Windows.Forms.TextBox textBoxLoginFree;
-        private System.Windows.Forms.Label labelPatronymicFree;
-        private System.Windows.Forms.Label labelLastNameFree;
-        private System.Windows.Forms.Label labelNameFree;
-        private System.Windows.Forms.Label labelLoginFree;
         private System.Windows.Forms.Button buttonChoose;
         private System.Windows.Forms.Button buttonReviews;
         private System.Windows.Forms.GroupBox groupBoxYouWallet;
@@ -630,8 +551,8 @@
         internal System.Windows.Forms.TextBox textBoxSumWallet;
         private System.Windows.Forms.DataGridView dataGridView1;
         private FreelancerArticleBaseGridOrderCustomer freelancerArticleBaseGridOrderCustomer;
-        private System.Windows.Forms.BindingSource orderBindingSource;
         private FreelancerArticleBaseGridOrderCustomerTableAdapters.OrderTableAdapter orderTableAdapter;
+        private System.Windows.Forms.BindingSource orderBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn заказаDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn темаDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn названиеDataGridViewTextBoxColumn;
@@ -639,5 +560,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn бюджетDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn назначенныйФрилансерDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn состояниеDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ListBox listBoxFeedback;
     }
 }
