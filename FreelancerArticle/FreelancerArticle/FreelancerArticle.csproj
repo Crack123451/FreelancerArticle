@@ -61,7 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class\Customer.cs" />
+    <Compile Include="Class\Review.cs" />
     <Compile Include="Class\Feedback.cs" />
     <Compile Include="Forms\FormInfoAboutFreelancer.cs">
       <SubType>Form</SubType>

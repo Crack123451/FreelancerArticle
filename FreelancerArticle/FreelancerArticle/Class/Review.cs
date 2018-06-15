@@ -9,13 +9,13 @@ using System.Windows.Forms;
 
 namespace FreelancerArticle
 {
-    class Customer : User
+    class Review
     {
-        /*public static SqlCommand RequestInfoCustomer(string login)
+        public static SqlCommand RequestCommentFreelancer(string loginFreelancer)
         {
             SqlCommand command = new SqlCommand
-                ("SELECT [Имя],[Фамилия],[Отчество] FROM [Customer] WHERE [Логин]='" + login + "'", sqlConnection);
+                ("SELECT [Комментарий] FROM [Reviews] WHERE [Фрилансер]='" + loginFreelancer + "'", User.sqlConnection);
             return command;
-        }*/
+        }
     }
 }

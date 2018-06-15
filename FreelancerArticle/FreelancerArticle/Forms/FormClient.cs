@@ -35,7 +35,7 @@ namespace FreelancerArticle
 
         private void buttonReviews_Click(object sender, EventArgs e)
         {
-            if (listBoxFeedback.Items.Count != 0)
+            if (listBoxFeedback.SelectedIndex > -1)
             {
                 var f = new FormReview(listBoxFeedback.SelectedItem.ToString());
                 f.ShowDialog();
@@ -122,7 +122,7 @@ namespace FreelancerArticle
 
         private void buttonChoose_Click(object sender, EventArgs e)
         {
-            if (listBoxFeedback.Items.Count!=0)
+            if (listBoxFeedback.SelectedIndex > -1)
             {
                 var f = new FormInfoAboutFreelancer(listBoxFeedback.SelectedItem.ToString());
                 f.ShowDialog();

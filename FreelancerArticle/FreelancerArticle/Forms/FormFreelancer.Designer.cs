@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.freelancerArticleBaseGridOrderFreelancer = new FreelancerArticle.FreelancerArticleBaseGridOrderFreelancer();
             this.labelYourOrder = new System.Windows.Forms.Label();
             this.buttonMessageModerator = new System.Windows.Forms.Button();
             this.groupBoxYouWallet = new System.Windows.Forms.GroupBox();
@@ -52,8 +54,6 @@
             this.сменитьПользователяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.freelancerArticleBaseGridOrderFreelancer = new FreelancerArticle.FreelancerArticleBaseGridOrderFreelancer();
-            this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.orderTableAdapter = new FreelancerArticle.FreelancerArticleBaseGridOrderFreelancerTableAdapters.OrderTableAdapter();
             this.заказаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.заказчикDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,11 +64,11 @@
             this.состояниеDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnFeedback = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.freelancerArticleBaseGridOrderFreelancer)).BeginInit();
             this.groupBoxYouWallet.SuspendLayout();
             this.groupBoxInfoAboutYou.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.freelancerArticleBaseGridOrderFreelancer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonDelete
@@ -104,6 +104,16 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(913, 251);
             this.dataGridView1.TabIndex = 20;
+            // 
+            // orderBindingSource
+            // 
+            this.orderBindingSource.DataMember = "Order";
+            this.orderBindingSource.DataSource = this.freelancerArticleBaseGridOrderFreelancer;
+            // 
+            // freelancerArticleBaseGridOrderFreelancer
+            // 
+            this.freelancerArticleBaseGridOrderFreelancer.DataSetName = "FreelancerArticleBaseGridOrderFreelancer";
+            this.freelancerArticleBaseGridOrderFreelancer.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // labelYourOrder
             // 
@@ -300,16 +310,6 @@
             this.справкаToolStripMenuItem.Size = new System.Drawing.Size(79, 24);
             this.справкаToolStripMenuItem.Text = "Справка";
             // 
-            // freelancerArticleBaseGridOrderFreelancer
-            // 
-            this.freelancerArticleBaseGridOrderFreelancer.DataSetName = "FreelancerArticleBaseGridOrderFreelancer";
-            this.freelancerArticleBaseGridOrderFreelancer.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // orderBindingSource
-            // 
-            this.orderBindingSource.DataMember = "Order";
-            this.orderBindingSource.DataSource = this.freelancerArticleBaseGridOrderFreelancer;
-            // 
             // orderTableAdapter
             // 
             this.orderTableAdapter.ClearBeforeFill = true;
@@ -382,6 +382,7 @@
             this.ColumnFeedback.HeaderText = "Ваш отклик";
             this.ColumnFeedback.Name = "ColumnFeedback";
             this.ColumnFeedback.ReadOnly = true;
+            this.ColumnFeedback.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.ColumnFeedback.Width = 50;
             // 
             // FormFreelancer
@@ -402,14 +403,14 @@
             this.Text = "FormFreelancer";
             this.Load += new System.EventHandler(this.FormFreelancer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.freelancerArticleBaseGridOrderFreelancer)).EndInit();
             this.groupBoxYouWallet.ResumeLayout(false);
             this.groupBoxYouWallet.PerformLayout();
             this.groupBoxInfoAboutYou.ResumeLayout(false);
             this.groupBoxInfoAboutYou.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.freelancerArticleBaseGridOrderFreelancer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
