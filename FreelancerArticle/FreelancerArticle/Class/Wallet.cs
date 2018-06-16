@@ -23,17 +23,11 @@ namespace FreelancerArticle
             return command;
         }
 
-        /*public static SqlCommand RequestWalletAttributes(string attributesDatabase)
-        {
-            SqlCommand command = new SqlCommand
-                ("SELECT [" + attributesDatabase + "] FROM [Wallets]", User.sqlConnection);
-            return command;
-        }*/
-
         public static SqlCommand InsertInfoWallet(string wallet, string sum)
         {
             SqlCommand command = new SqlCommand
-                ("INSERT INTO [Wallets]([№ Кошелька],[Сумма]) VALUES ('" + wallet + "','" + sum + "')", User.sqlConnection);
+                ("INSERT INTO [Wallets]([№ Кошелька],[Сумма]) " +
+                "VALUES ('" + wallet + "','" + sum + "')", User.sqlConnection);
             return command;
         }
     }

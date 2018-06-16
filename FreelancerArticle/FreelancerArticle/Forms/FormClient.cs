@@ -95,7 +95,7 @@ namespace FreelancerArticle
         private async void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             listBoxFeedback.Items.Clear();
-            var numberOrder = dataGridView1.SelectedCells[0].OwningRow.Cells[0].Value.ToString();
+            var numberOrder = dataGridViewOrder.SelectedCells[0].OwningRow.Cells[0].Value.ToString();
 
             SqlDataReader sqlReader = null;
             SqlConnection sqlConnection = User.EnterToDatabase();
@@ -127,6 +127,52 @@ namespace FreelancerArticle
                 var f = new FormInfoAboutFreelancer(listBoxFeedback.SelectedItem.ToString());
                 f.ShowDialog();
             }
+        }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var f = new FormOrder(Login);
+            f.ShowDialog();
+            this.Close();
+        }
+
+        private void buttonLookAt_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewOrder.CurrentCell.RowIndex > -1)
+            {
+                this.Hide();
+                var f = new FormOrder(Login, Int32.Parse(dataGridViewOrder.SelectedCells[0].OwningRow.Cells[0].Value.ToString()));
+                f.ShowDialog();
+                this.Close();
+            }
+        }
+
+        private async void buttonDelete_Click(object sender, EventArgs e)
+        {
+            string numberOrder = dataGridViewOrder.SelectedCells[0].OwningRow.Cells[0].Value.ToString();
+            if (numberOrder == null)
+                goto finish;
+            SqlDataReader sqlReader = null;
+            SqlConnection sqlConnection = User.EnterToDatabase();
+            await sqlConnection.OpenAsync();
+            SqlCommand commandDeleteOrder = Order.DeleteOrder(numberOrder);
+            try
+            {
+                sqlReader = await commandDeleteOrder.ExecuteReaderAsync();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (sqlReader != null)
+                    sqlReader.Close();
+            }
+            dataGridViewOrder.Rows.RemoveAt(dataGridViewOrder.CurrentCell.RowIndex);
+            dataGridViewOrder.CurrentCell = dataGridViewOrder[0, 0];
+            finish:;
         }
     }
 }

@@ -60,7 +60,7 @@
             this.сменитьПользователяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewOrder = new System.Windows.Forms.DataGridView();
             this.заказаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.темаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.названиеDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,7 +75,7 @@
             this.groupBoxInfoAboutFreelancer.SuspendLayout();
             this.groupBoxYouWallet.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.freelancerArticleBaseGridOrderCustomer)).BeginInit();
             this.SuspendLayout();
@@ -297,6 +297,7 @@
             this.buttonDelete.TabIndex = 10;
             this.buttonDelete.Text = "Удалить";
             this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // buttonLookAt
             // 
@@ -307,6 +308,7 @@
             this.buttonLookAt.TabIndex = 11;
             this.buttonLookAt.Text = "Просмотр";
             this.buttonLookAt.UseVisualStyleBackColor = true;
+            this.buttonLookAt.Click += new System.EventHandler(this.buttonLookAt_Click);
             // 
             // buttonAdd
             // 
@@ -317,6 +319,7 @@
             this.buttonAdd.TabIndex = 12;
             this.buttonAdd.Text = "Добавить";
             this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // buttonConfirmWork
             // 
@@ -379,13 +382,13 @@
             this.справкаToolStripMenuItem.Size = new System.Drawing.Size(79, 24);
             this.справкаToolStripMenuItem.Text = "Справка";
             // 
-            // dataGridView1
+            // dataGridViewOrder
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewOrder.AllowUserToAddRows = false;
+            this.dataGridViewOrder.AllowUserToOrderColumns = true;
+            this.dataGridViewOrder.AutoGenerateColumns = false;
+            this.dataGridViewOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.заказаDataGridViewTextBoxColumn,
             this.темаDataGridViewTextBoxColumn,
             this.названиеDataGridViewTextBoxColumn,
@@ -393,14 +396,14 @@
             this.бюджетDataGridViewTextBoxColumn,
             this.назначенныйФрилансерDataGridViewTextBoxColumn,
             this.состояниеDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.orderBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(22, 300);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(913, 264);
-            this.dataGridView1.TabIndex = 18;
-            this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
+            this.dataGridViewOrder.DataSource = this.orderBindingSource;
+            this.dataGridViewOrder.Location = new System.Drawing.Point(22, 300);
+            this.dataGridViewOrder.Name = "dataGridViewOrder";
+            this.dataGridViewOrder.ReadOnly = true;
+            this.dataGridViewOrder.RowTemplate.Height = 24;
+            this.dataGridViewOrder.Size = new System.Drawing.Size(913, 264);
+            this.dataGridViewOrder.TabIndex = 18;
+            this.dataGridViewOrder.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             // 
             // заказаDataGridViewTextBoxColumn
             // 
@@ -484,7 +487,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(957, 682);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridViewOrder);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.buttonGiveFeedback);
             this.Controls.Add(this.buttonConfirmWork);
@@ -509,7 +512,7 @@
             this.groupBoxYouWallet.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.freelancerArticleBaseGridOrderCustomer)).EndInit();
             this.ResumeLayout(false);
@@ -549,7 +552,7 @@
         private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
         internal System.Windows.Forms.TextBox textBoxSumWallet;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewOrder;
         private FreelancerArticleBaseGridOrderCustomer freelancerArticleBaseGridOrderCustomer;
         private FreelancerArticleBaseGridOrderCustomerTableAdapters.OrderTableAdapter orderTableAdapter;
         private System.Windows.Forms.BindingSource orderBindingSource;

@@ -34,7 +34,8 @@ namespace FreelancerArticle
             if (whoYou == "Заказчик") whoYou = "Customer";
             else whoYou = "Freelancer";
             SqlCommand command = new SqlCommand
-                ("INSERT INTO [" + whoYou + "]([Логин],[Пароль],[Имя],[Фамилия],[Отчество],[№ Кошелька]) VALUES ('"+login+ "','" + password + "','" + name + "','" + lastName+"','"+patronymic+"','"+wallet+"')", User.sqlConnection);
+                ("INSERT INTO [" + whoYou + "]([Логин],[Пароль],[Имя],[Фамилия],[Отчество],[№ Кошелька]) " +
+                "VALUES (N'"+login+ "','" + password + "',N'" + name + "',N'" + lastName+"',N'"+patronymic+"',N'"+wallet+"')", sqlConnection);
             return command;
         }
 

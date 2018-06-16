@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -58,6 +59,14 @@ namespace FreelancerArticle
                         goto close;
                     }
                 }
+
+                if(!Regex.IsMatch(textBoxLogin.Text.ToString(), @"^[a-zA-Z0-9]+$") ||
+                    !Regex.IsMatch(textBoxPassword.Text.ToString(), @"^[a-zA-Z0-9]+$"))
+                {
+                    MessageBox.Show("Логин и пароль могут содержать только латинские символы или цифры");
+                    goto close;
+                }
+
                 sqlReader.Close();
                 sqlReader = await commandTextBoxInsertWallet.ExecuteReaderAsync();
                 sqlReader.Close();
