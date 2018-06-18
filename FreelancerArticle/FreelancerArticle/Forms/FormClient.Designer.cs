@@ -389,7 +389,6 @@
             // dataGridViewOrder
             // 
             this.dataGridViewOrder.AllowUserToAddRows = false;
-            this.dataGridViewOrder.AllowUserToOrderColumns = true;
             this.dataGridViewOrder.AutoGenerateColumns = false;
             this.dataGridViewOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {

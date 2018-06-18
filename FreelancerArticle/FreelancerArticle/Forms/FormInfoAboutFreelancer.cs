@@ -44,6 +44,7 @@ namespace FreelancerArticle
                 if (sqlReader != null)
                     sqlReader.Close();
             }
+            var f = new FormClient(Login);
         }
 
         private async void FormInfoAboutFreelancer_Load(object sender, EventArgs e)

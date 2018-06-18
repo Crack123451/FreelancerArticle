@@ -39,9 +39,15 @@ namespace FreelancerArticle
             SqlConnection sqlConnection = User.EnterToDatabase();
             await sqlConnection.OpenAsync();
             SqlCommand commandInfoOrder = Order.SendFile(NumberOrder.ToString(), textBoxFile.Text.ToString());
+            SqlCommand ChangeStatus = Order.ChangeStatus(NumberOrder.ToString(), "Работа выполнена");
             try
             {
                 sqlReader = await commandInfoOrder.ExecuteReaderAsync();
+                if (textBoxFile != null)
+                {
+                    sqlReader.Close();
+                    sqlReader = await ChangeStatus.ExecuteReaderAsync();
+                }
             }
             catch (Exception ex)
             {

@@ -20,6 +20,7 @@ namespace FreelancerArticle
             InitializeComponent();
             buttonConfirmWork.Enabled = false;
             buttonGiveReview.Enabled = false;
+            buttonConflict.Enabled = false;
         }
 
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
@@ -246,6 +247,8 @@ namespace FreelancerArticle
                 if (sqlReader != null)
                     sqlReader.Close();
             }
+            DataGridViewTextBoxCell txtxCell = (DataGridViewTextBoxCell)dataGridViewOrder.Rows[dataGridViewOrder.SelectedCells[0].OwningRow.Index].Cells[6];
+            txtxCell.Value = "Работа подтверждена";
             finish:;
         }
 
@@ -261,6 +264,8 @@ namespace FreelancerArticle
             try
             {
                 sqlReader = await commandTextBoxConflict.ExecuteReaderAsync();
+                DataGridViewTextBoxCell txtxCell = (DataGridViewTextBoxCell)dataGridViewOrder.Rows[dataGridViewOrder.SelectedCells[0].OwningRow.Index].Cells[6];
+                txtxCell.Value = "Конфликт";
                 MessageBox.Show("Объявлен конфликт. Напишите модератору свои притензии. Модератор решит вопрос в течение 3 суток.");
             }
             catch (Exception ex)
