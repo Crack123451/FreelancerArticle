@@ -55,9 +55,10 @@
             // 
             // textBoxSum
             // 
+            this.textBoxSum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBoxSum.Location = new System.Drawing.Point(61, 74);
             this.textBoxSum.Name = "textBoxSum";
-            this.textBoxSum.Size = new System.Drawing.Size(129, 22);
+            this.textBoxSum.Size = new System.Drawing.Size(129, 27);
             this.textBoxSum.TabIndex = 2;
             // 
             // FormPurse

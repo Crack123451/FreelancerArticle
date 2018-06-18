@@ -54,7 +54,7 @@
             this.buttonLookAt = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonConfirmWork = new System.Windows.Forms.Button();
-            this.buttonGiveFeedback = new System.Windows.Forms.Button();
+            this.buttonGiveReview = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сменитьПользователяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,6 +71,7 @@
             this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.freelancerArticleBaseGridOrderCustomer = new FreelancerArticle.FreelancerArticleBaseGridOrderCustomer();
             this.orderTableAdapter = new FreelancerArticle.FreelancerArticleBaseGridOrderCustomerTableAdapters.OrderTableAdapter();
+            this.buttonConflict = new System.Windows.Forms.Button();
             this.groupBoxInfoAboutYou.SuspendLayout();
             this.groupBoxInfoAboutFreelancer.SuspendLayout();
             this.groupBoxYouWallet.SuspendLayout();
@@ -277,6 +278,7 @@
             this.buttonMessageModerator.TabIndex = 7;
             this.buttonMessageModerator.Text = "Написать модератору";
             this.buttonMessageModerator.UseVisualStyleBackColor = true;
+            this.buttonMessageModerator.Click += new System.EventHandler(this.buttonMessageModerator_Click);
             // 
             // labelYourOrder
             // 
@@ -324,22 +326,24 @@
             // buttonConfirmWork
             // 
             this.buttonConfirmWork.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonConfirmWork.Location = new System.Drawing.Point(40, 570);
+            this.buttonConfirmWork.Location = new System.Drawing.Point(40, 629);
             this.buttonConfirmWork.Name = "buttonConfirmWork";
             this.buttonConfirmWork.Size = new System.Drawing.Size(231, 41);
             this.buttonConfirmWork.TabIndex = 13;
             this.buttonConfirmWork.Text = "Подтвердить работу";
             this.buttonConfirmWork.UseVisualStyleBackColor = true;
+            this.buttonConfirmWork.Click += new System.EventHandler(this.buttonConfirmWork_Click);
             // 
-            // buttonGiveFeedback
+            // buttonGiveReview
             // 
-            this.buttonGiveFeedback.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonGiveFeedback.Location = new System.Drawing.Point(40, 629);
-            this.buttonGiveFeedback.Name = "buttonGiveFeedback";
-            this.buttonGiveFeedback.Size = new System.Drawing.Size(231, 41);
-            this.buttonGiveFeedback.TabIndex = 14;
-            this.buttonGiveFeedback.Text = "Оставить отзыв";
-            this.buttonGiveFeedback.UseVisualStyleBackColor = true;
+            this.buttonGiveReview.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonGiveReview.Location = new System.Drawing.Point(40, 570);
+            this.buttonGiveReview.Name = "buttonGiveReview";
+            this.buttonGiveReview.Size = new System.Drawing.Size(231, 41);
+            this.buttonGiveReview.TabIndex = 14;
+            this.buttonGiveReview.Text = "Оставить отзыв";
+            this.buttonGiveReview.UseVisualStyleBackColor = true;
+            this.buttonGiveReview.Click += new System.EventHandler(this.buttonGiveReview_Click);
             // 
             // menuStrip1
             // 
@@ -481,15 +485,27 @@
             // 
             this.orderTableAdapter.ClearBeforeFill = true;
             // 
+            // buttonConflict
+            // 
+            this.buttonConflict.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonConflict.Location = new System.Drawing.Point(780, 199);
+            this.buttonConflict.Name = "buttonConflict";
+            this.buttonConflict.Size = new System.Drawing.Size(155, 41);
+            this.buttonConflict.TabIndex = 19;
+            this.buttonConflict.Text = "Конфликт";
+            this.buttonConflict.UseVisualStyleBackColor = true;
+            this.buttonConflict.Click += new System.EventHandler(this.buttonConflict_Click);
+            // 
             // FormClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(957, 682);
+            this.Controls.Add(this.buttonConflict);
             this.Controls.Add(this.dataGridViewOrder);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.buttonGiveFeedback);
+            this.Controls.Add(this.buttonGiveReview);
             this.Controls.Add(this.buttonConfirmWork);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.buttonLookAt);
@@ -545,7 +561,7 @@
         private System.Windows.Forms.Button buttonLookAt;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button buttonConfirmWork;
-        private System.Windows.Forms.Button buttonGiveFeedback;
+        private System.Windows.Forms.Button buttonGiveReview;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сменитьПользователяToolStripMenuItem;
@@ -564,5 +580,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn назначенныйФрилансерDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn состояниеDataGridViewTextBoxColumn;
         private System.Windows.Forms.ListBox listBoxFeedback;
+        private System.Windows.Forms.Button buttonConflict;
     }
 }

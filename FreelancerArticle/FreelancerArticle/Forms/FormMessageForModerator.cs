@@ -16,5 +16,17 @@ namespace FreelancerArticle
         {
             InitializeComponent();
         }
+
+        private void FormMessageForModerator_Load(object sender, EventArgs e)
+        {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "freelancerArticleBaseDataForModerator.Messenger". При необходимости она может быть перемещена или удалена.
+            this.messengerTableAdapter.Fill(this.freelancerArticleBaseDataForModerator.Messenger);
+
+        }
+
+        private void buttonOK_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

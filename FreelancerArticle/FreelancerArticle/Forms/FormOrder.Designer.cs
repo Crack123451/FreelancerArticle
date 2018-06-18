@@ -136,6 +136,7 @@
             this.buttonDownload.TabIndex = 11;
             this.buttonDownload.Text = "Скачать выполненную работу";
             this.buttonDownload.UseVisualStyleBackColor = true;
+            this.buttonDownload.Click += new System.EventHandler(this.buttonDownload_Click);
             // 
             // textBoxTopic
             // 

@@ -45,7 +45,5 @@ namespace FreelancerArticle
                 ("SELECT [Имя],[Фамилия],[Отчество] FROM [" + who + "] WHERE [Логин]='" + login + "'", sqlConnection);
             return command;
         }
-
-
     }
 }

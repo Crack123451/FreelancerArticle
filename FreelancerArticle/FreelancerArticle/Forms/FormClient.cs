@@ -18,6 +18,8 @@ namespace FreelancerArticle
         {
             Login = login;
             InitializeComponent();
+            buttonConfirmWork.Enabled = false;
+            buttonGiveReview.Enabled = false;
         }
 
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
@@ -96,6 +98,36 @@ namespace FreelancerArticle
         {
             listBoxFeedback.Items.Clear();
             var numberOrder = dataGridViewOrder.SelectedCells[0].OwningRow.Cells[0].Value.ToString();
+            var status = dataGridViewOrder.SelectedCells[0].OwningRow.Cells[6].Value.ToString();
+            //Выставление активных и неактивных кнопок, исходя из значения поля "Состояние" таблицы "Заказ"
+            switch(status)
+            {
+                case "Фрилансер подтвержден":
+                    buttonConfirmWork.Enabled = true;
+                    buttonGiveReview.Enabled = true;
+                    buttonConflict.Enabled = true;
+                    break;
+                case "Работа выполнена":
+                    buttonConfirmWork.Enabled = true;
+                    buttonGiveReview.Enabled = true;
+                    buttonConflict.Enabled = true;
+                    break;
+                case "Работа подтверждена":
+                    buttonConfirmWork.Enabled = false;
+                    buttonGiveReview.Enabled = true;
+                    buttonConflict.Enabled = false;
+                    break;
+                case "Конфликт":
+                    buttonConfirmWork.Enabled = false;
+                    buttonGiveReview.Enabled = true;
+                    buttonConflict.Enabled = false;
+                    break;
+                default:
+                    buttonConfirmWork.Enabled = false;
+                    buttonGiveReview.Enabled = false;
+                    buttonConflict.Enabled = false;
+                    break;
+            }
 
             SqlDataReader sqlReader = null;
             SqlConnection sqlConnection = User.EnterToDatabase();
@@ -124,7 +156,7 @@ namespace FreelancerArticle
         {
             if (listBoxFeedback.SelectedIndex > -1)
             {
-                var f = new FormInfoAboutFreelancer(listBoxFeedback.SelectedItem.ToString());
+                var f = new FormInfoAboutFreelancer(Login, listBoxFeedback.SelectedItem.ToString(), dataGridViewOrder.SelectedCells[0].OwningRow.Cells[0].Value.ToString());
                 f.ShowDialog();
             }
         }
@@ -142,7 +174,7 @@ namespace FreelancerArticle
             if (dataGridViewOrder.CurrentCell.RowIndex > -1)
             {
                 this.Hide();
-                var f = new FormOrder(Login, Int32.Parse(dataGridViewOrder.SelectedCells[0].OwningRow.Cells[0].Value.ToString()));
+                var f = new FormOrder(Login, Int32.Parse(dataGridViewOrder.SelectedCells[0].OwningRow.Cells[0].Value.ToString()), dataGridViewOrder.SelectedCells[0].OwningRow.Cells[6].Value.ToString());
                 f.ShowDialog();
                 this.Close();
             }
@@ -172,6 +204,74 @@ namespace FreelancerArticle
             }
             dataGridViewOrder.Rows.RemoveAt(dataGridViewOrder.CurrentCell.RowIndex);
             dataGridViewOrder.CurrentCell = dataGridViewOrder[0, 0];
+            finish:;
+        }
+
+        private void buttonGiveReview_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewOrder.CurrentCell.RowIndex > -1)
+            {
+                var loginAssignedFreelancer = dataGridViewOrder.SelectedCells[0].OwningRow.Cells[5].Value.ToString();
+                var f = new FormGiveReview(loginAssignedFreelancer);
+                f.ShowDialog();
+            }
+        }
+
+        private void buttonMessageModerator_Click(object sender, EventArgs e)
+        {
+            var f = new FormSendMessageForModerator(Login);
+            f.ShowDialog();
+        }
+
+        private async void buttonConfirmWork_Click(object sender, EventArgs e)
+        {
+            string numberOrder = dataGridViewOrder.SelectedCells[0].OwningRow.Cells[0].Value.ToString();
+            if (numberOrder == null)
+                goto finish;
+            SqlDataReader sqlReader = null;
+            SqlConnection sqlConnection = User.EnterToDatabase();
+            await sqlConnection.OpenAsync();
+            SqlCommand commandTextBoxConfirmWork = Order.ChangeStatus(numberOrder, "Работа подтверждена");
+            try
+            {
+                sqlReader = await commandTextBoxConfirmWork.ExecuteReaderAsync();
+                MessageBox.Show("Работа подтверждена");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (sqlReader != null)
+                    sqlReader.Close();
+            }
+            finish:;
+        }
+
+        private async void buttonConflict_Click(object sender, EventArgs e)
+        {
+            string numberOrder = dataGridViewOrder.SelectedCells[0].OwningRow.Cells[0].Value.ToString();
+            if (numberOrder == null)
+                goto finish;
+            SqlDataReader sqlReader = null;
+            SqlConnection sqlConnection = User.EnterToDatabase();
+            await sqlConnection.OpenAsync();
+            SqlCommand commandTextBoxConflict = Order.ChangeStatus(numberOrder, "Конфликт");
+            try
+            {
+                sqlReader = await commandTextBoxConflict.ExecuteReaderAsync();
+                MessageBox.Show("Объявлен конфликт. Напишите модератору свои притензии. Модератор решит вопрос в течение 3 суток.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (sqlReader != null)
+                    sqlReader.Close();
+            }
             finish:;
         }
     }

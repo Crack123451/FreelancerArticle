@@ -13,15 +13,17 @@ namespace FreelancerArticle
         public static SqlCommand RequestMessageForModerator()
         {
             SqlCommand command = new SqlCommand
-                ("SELECT [Логин пользователя],[Сообщение] FROM [Moderator]", User.sqlConnection);
+                ("SELECT [Время],[Логин пользователя],[Сообщение] FROM [Moderator]", User.sqlConnection);
             return command;
         }
 
         public static SqlCommand SendMessageForModerator(string loginUser, string message)
         {
+            string format = "yyyy.MM.dd hh:mm";
+            DateTime time = DateTime.Now;
             SqlCommand command = new SqlCommand
-                ("INSERT INTO [Moderator]([Логин модератора],[Логин пользователя],[Сообщение]) " +
-                "VALUES (N'Admin',N'" + loginUser + "',N'" + message + "')", User.sqlConnection);
+                ("INSERT INTO [Messenger]([№ Мессенджера],[Время],[Логин пользователя],[Сообщение]) " +
+                "VALUES ('1','" + time.ToString(format) + "','" + loginUser + "',N'" + message + "')", User.sqlConnection);
             return command;
         }
     }

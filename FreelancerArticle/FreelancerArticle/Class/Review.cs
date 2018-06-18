@@ -17,5 +17,20 @@ namespace FreelancerArticle
                 ("SELECT [Комментарий] FROM [Reviews] WHERE [Фрилансер]='" + loginFreelancer + "'", User.sqlConnection);
             return command;
         }
+
+        public static SqlCommand InsertCommentFreelancer(string numberReview, string loginFreelancer, string comment)
+        {
+            SqlCommand command = new SqlCommand
+                ("INSERT INTO [Reviews]([№ Отзыва],[Фрилансер],[Комментарий])" +
+                "VALUES ('" + numberReview + "',N'" + loginFreelancer + "',N'" + comment + "')", User.sqlConnection);
+            return command;
+        }
+
+        public static SqlCommand CheckLastNumberReview()
+        {
+            SqlCommand command = new SqlCommand
+                ("SELECT [№ Отзыва] FROM [Reviews]", User.sqlConnection);
+            return command;
+        }
     }
 }

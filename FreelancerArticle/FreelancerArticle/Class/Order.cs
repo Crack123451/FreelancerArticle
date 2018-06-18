@@ -38,5 +38,33 @@ namespace FreelancerArticle
                 "VALUES ('" + numberOrder + "',N'" + loginCustomer + "',N'" + topic + "',N'" + title + "',N'" + description + "','" + countSymbol + "','" + money + "',N'Нет фрилансера')", User.sqlConnection);
             return command;
         }
+
+        public static SqlCommand SendFile(string numberOrder, string file)
+        {
+            SqlCommand command = new SqlCommand
+                ("UPDATE [Order] SET [Файл]=N'" + file + "' WHERE [№ Заказа] = '" + numberOrder + "'", User.sqlConnection);
+            return command;
+        }
+
+        public static SqlCommand DownloadFile(string numberOrder)
+        {
+            SqlCommand command = new SqlCommand
+                ("SELECT [Файл] FROM [Order] WHERE [№ Заказа]='" + numberOrder + "'", User.sqlConnection);
+            return command;
+        }
+
+        public static SqlCommand AssignFreelancer(string numberOrder, string assignedFreelancer)
+        {
+            SqlCommand command = new SqlCommand
+                ("UPDATE [Order] SET [Назначенный фрилансер]=N'" + assignedFreelancer + "', [Состояние]=N'Фрилансер подтвержден' WHERE [№ Заказа] = '" + numberOrder + "'", User.sqlConnection);
+            return command;
+        }
+
+        public static SqlCommand ChangeStatus(string numberOrder, string status)
+        {
+            SqlCommand command = new SqlCommand
+                ("UPDATE [Order] SET [Состояние]=N'" + status + "' WHERE [№ Заказа] = '" + numberOrder + "'", User.sqlConnection);
+            return command;
+        }
     }
 }

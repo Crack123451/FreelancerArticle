@@ -35,8 +35,8 @@ namespace FreelancerArticle
 
         private async void FormFreelancer_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "freelancerArticleBaseGridOrderFreelancer.Order". При необходимости она может быть перемещена или удалена.
-            this.orderTableAdapter.Fill(this.freelancerArticleBaseGridOrderFreelancer.Order);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "freelancerArticleBaseGridOrderCustomer.Order". При необходимости она может быть перемещена или удалена.
+            this.orderTableAdapter.Fill(this.freelancerArticleBaseGridOrderCustomer.Order);
             orderBindingSource.Filter = "([Назначенный фрилансер] IS NULL) OR ([Назначенный фрилансер]='" + Login + "')";
 
             SqlDataReader sqlReader = null;
@@ -72,6 +72,23 @@ namespace FreelancerArticle
             {
                 if (sqlReader != null)
                     sqlReader.Close();
+            }
+        }
+
+        private void buttonMessageModerator_Click(object sender, EventArgs e)
+        {
+            var f = new FormSendMessageForModerator(Login);
+            f.ShowDialog();
+        }
+
+        private void buttonLearnMore_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewOrderFreelancer.CurrentCell.RowIndex > -1)
+            {
+                this.Hide();
+                var f = new FormOrderForFreelancer(Login, Int32.Parse(dataGridViewOrderFreelancer.SelectedCells[0].OwningRow.Cells[0].Value.ToString()), dataGridViewOrderFreelancer.SelectedCells[0].OwningRow.Cells[6].Value.ToString());
+                f.ShowDialog();
+                this.Close();
             }
         }
     }

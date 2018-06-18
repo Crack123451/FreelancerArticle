@@ -11,29 +11,37 @@ using System.Windows.Forms;
 
 namespace FreelancerArticle
 {
-    public partial class FormInfoAboutFreelancer : Form
+    public partial class FormFile : Form
     {
-        string LoginFreelancer;
-        string NumberOrder;
         string Login;
-        public FormInfoAboutFreelancer(string login, string loginFreelancer, string numberOrder)
+        string TransitionForm;
+        int NumberOrder;
+        public FormFile(string login, int numberOrder, string transitionForm)
         {
-            LoginFreelancer = loginFreelancer;
             Login = login;
+            TransitionForm = transitionForm;
             NumberOrder = numberOrder;
             InitializeComponent();
+            if (TransitionForm == "FormOrder")
+                textBoxFile.ReadOnly = true;
+            else
+                textBoxFile.ReadOnly = false;
         }
 
-        private async void buttonConfirmFreelancer_Click(object sender, EventArgs e)
+        private async void buttonOK_Click(object sender, EventArgs e)
         {
+            if (TransitionForm == "FormOrder")
+            {
+                goto finish;
+            }
+
             SqlDataReader sqlReader = null;
             SqlConnection sqlConnection = User.EnterToDatabase();
             await sqlConnection.OpenAsync();
-            SqlCommand commandAssignFreelancer = Order.AssignFreelancer(NumberOrder, LoginFreelancer);
+            SqlCommand commandInfoOrder = Order.SendFile(NumberOrder.ToString(), textBoxFile.Text.ToString());
             try
             {
-                sqlReader = await commandAssignFreelancer.ExecuteReaderAsync();
-                MessageBox.Show("Фрилансер подтвержден");
+                sqlReader = await commandInfoOrder.ExecuteReaderAsync();
             }
             catch (Exception ex)
             {
@@ -44,23 +52,27 @@ namespace FreelancerArticle
                 if (sqlReader != null)
                     sqlReader.Close();
             }
+
+            finish: this.Close();
         }
 
-        private async void FormInfoAboutFreelancer_Load(object sender, EventArgs e)
+        private async void FormFile_Load(object sender, EventArgs e)
         {
+            if (TransitionForm == "FormOrderForFreelancer")
+            {
+                goto finish;
+            }
+
             SqlDataReader sqlReader = null;
             SqlConnection sqlConnection = User.EnterToDatabase();
             await sqlConnection.OpenAsync();
-            SqlCommand commandTextBoxCustomerInfo = User.RequestInfoUser(LoginFreelancer, "Freelancer");
+            SqlCommand commandInfoOrder = Order.DownloadFile(NumberOrder.ToString());
             try
             {
-                sqlReader = await commandTextBoxCustomerInfo.ExecuteReaderAsync();
+                sqlReader = await commandInfoOrder.ExecuteReaderAsync();
                 while (await sqlReader.ReadAsync())
                 {
-                    textBoxLoginFree.Text = LoginFreelancer;
-                    textBoxNameFree.Text = sqlReader["Имя"].ToString();
-                    textBoxLastNameFree.Text = sqlReader["Фамилия"].ToString();
-                    textBoxPatronymicFree.Text = sqlReader["Отчество"].ToString();
+                    textBoxFile.Text = sqlReader["Файл"].ToString();
                 }
             }
             catch (Exception ex)
@@ -72,6 +84,8 @@ namespace FreelancerArticle
                 if (sqlReader != null)
                     sqlReader.Close();
             }
+
+            finish:;
         }
     }
 }

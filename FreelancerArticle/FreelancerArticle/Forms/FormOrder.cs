@@ -23,13 +23,16 @@ namespace FreelancerArticle
             buttonDownload.Enabled = false;
         }
 
-        public FormOrder(string login, int numberOrder)
+        public FormOrder(string login, int numberOrder, string status)
         {
             NumberOrder = numberOrder;
             Login = login;
             InitializeComponent();
             buttonPublish.Enabled = false;
-            buttonDownload.Enabled = true;
+            if(status == "Нет отклика" || status == "Есть отклик" || status == "Фрилансер подтвержден")
+                buttonDownload.Enabled = false;
+            else
+                buttonDownload.Enabled = true;
             textBoxTopic.ReadOnly = true;
             textBoxTitle.ReadOnly = true;
             textBoxDescription.ReadOnly = true;
@@ -112,6 +115,12 @@ namespace FreelancerArticle
             var f = new FormClient(Login);
             f.ShowDialog();
             this.Close();
+        }
+
+        private void buttonDownload_Click(object sender, EventArgs e)
+        {
+            var f = new FormFile(Login, NumberOrder, "FormOrder");
+            f.ShowDialog();
         }
     }
 }

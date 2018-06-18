@@ -63,6 +63,24 @@
   <ItemGroup>
     <Compile Include="Class\Review.cs" />
     <Compile Include="Class\Feedback.cs" />
+    <Compile Include="Forms\FormFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormFile.Designer.cs">
+      <DependentUpon>FormFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormSendMessageForModerator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormSendMessageForModerator.Designer.cs">
+      <DependentUpon>FormSendMessageForModerator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormGiveReview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormGiveReview.Designer.cs">
+      <DependentUpon>FormGiveReview.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormInfoAboutFreelancer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,15 +147,15 @@
     <Compile Include="Forms\FormReview.Designer.cs">
       <DependentUpon>FormReview.cs</DependentUpon>
     </Compile>
+    <Compile Include="FreelancerArticleBaseDataForModerator.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FreelancerArticleBaseDataForModerator.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FreelancerArticleBaseGridOrderCustomer.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FreelancerArticleBaseGridOrderCustomer.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="FreelancerArticleBaseGridOrderFreelancer.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FreelancerArticleBaseGridOrderFreelancer.xsd</DependentUpon>
     </Compile>
     <Compile Include="Class\Moderator.cs" />
     <Compile Include="Class\Order.cs" />
@@ -145,6 +163,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Class\User.cs" />
     <Compile Include="Class\Wallet.cs" />
+    <EmbeddedResource Include="Forms\FormFile.resx">
+      <DependentUpon>FormFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormGiveReview.resx">
+      <DependentUpon>FormGiveReview.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormInfoAboutFreelancer.resx">
       <DependentUpon>FormInfoAboutFreelancer.cs</DependentUpon>
     </EmbeddedResource>
@@ -179,6 +203,9 @@
     <EmbeddedResource Include="Forms\FormReview.resx">
       <DependentUpon>FormReview.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSendMessageForModerator.resx">
+      <DependentUpon>FormSendMessageForModerator.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -188,6 +215,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="FreelancerArticleBaseDataForModerator.xsc">
+      <DependentUpon>FreelancerArticleBaseDataForModerator.xsd</DependentUpon>
+    </None>
+    <None Include="FreelancerArticleBaseDataForModerator.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FreelancerArticleBaseDataForModerator.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FreelancerArticleBaseDataForModerator.xss">
+      <DependentUpon>FreelancerArticleBaseDataForModerator.xsd</DependentUpon>
+    </None>
     <None Include="FreelancerArticleBaseGridOrderCustomer.xsc">
       <DependentUpon>FreelancerArticleBaseGridOrderCustomer.xsd</DependentUpon>
     </None>
@@ -198,17 +236,6 @@
     </None>
     <None Include="FreelancerArticleBaseGridOrderCustomer.xss">
       <DependentUpon>FreelancerArticleBaseGridOrderCustomer.xsd</DependentUpon>
-    </None>
-    <None Include="FreelancerArticleBaseGridOrderFreelancer.xsc">
-      <DependentUpon>FreelancerArticleBaseGridOrderFreelancer.xsd</DependentUpon>
-    </None>
-    <None Include="FreelancerArticleBaseGridOrderFreelancer.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>FreelancerArticleBaseGridOrderFreelancer.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="FreelancerArticleBaseGridOrderFreelancer.xss">
-      <DependentUpon>FreelancerArticleBaseGridOrderFreelancer.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
