@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,15 +14,23 @@ namespace FreelancerArticle
 {
     public partial class FormInfoAboutFreelancer : Form
     {
+        private ServiceHost Host;
+
         string LoginFreelancer;
         string NumberOrder;
         string Login;
-        public FormInfoAboutFreelancer(string login, string loginFreelancer, string numberOrder)
+        string Status;
+        public FormInfoAboutFreelancer(string login, string loginFreelancer, string numberOrder, string status)
         {
             LoginFreelancer = loginFreelancer;
             Login = login;
             NumberOrder = numberOrder;
+            Status = status;
             InitializeComponent();
+            if (status == "Есть отклик")
+                buttonConfirmFreelancer.Enabled = true;
+            else
+                buttonConfirmFreelancer.Enabled = false;
         }
 
         private async void buttonConfirmFreelancer_Click(object sender, EventArgs e)
@@ -49,6 +58,9 @@ namespace FreelancerArticle
 
         private async void FormInfoAboutFreelancer_Load(object sender, EventArgs e)
         {
+            Host = new ServiceHost(typeof(Service));
+            Host.Open();
+
             SqlDataReader sqlReader = null;
             SqlConnection sqlConnection = User.EnterToDatabase();
             await sqlConnection.OpenAsync();
@@ -73,6 +85,11 @@ namespace FreelancerArticle
                 if (sqlReader != null)
                     sqlReader.Close();
             }
+        }
+
+        private void FormInfoAboutFreelancer_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Host.Close();
         }
     }
 }

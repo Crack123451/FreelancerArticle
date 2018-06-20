@@ -38,5 +38,12 @@ namespace FreelancerArticle
                 "VALUES ('" + numberFeedback + "',N'" + loginFreelancer + "','" + numberOrder + "')", User.sqlConnection);
             return command;
         }
+
+        public static SqlCommand DeleteFeedback(string numberOrder)
+        {
+            SqlCommand command = new SqlCommand
+                ("DELETE FROM [Feedback] WHERE [№ Заказа]='" + numberOrder + "'", User.sqlConnection);
+            return command;
+        }
     }
 }

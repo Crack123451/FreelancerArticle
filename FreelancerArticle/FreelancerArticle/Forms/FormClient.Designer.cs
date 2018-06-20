@@ -514,6 +514,7 @@
             this.Controls.Add(this.groupBoxYouWallet);
             this.Controls.Add(this.groupBoxInfoAboutFreelancer);
             this.Controls.Add(this.groupBoxInfoAboutYou);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "FormClient";

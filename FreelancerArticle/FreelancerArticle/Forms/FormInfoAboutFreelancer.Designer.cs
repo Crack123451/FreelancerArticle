@@ -136,6 +136,7 @@
             this.Name = "FormInfoAboutFreelancer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Подробнее о фрилансере";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormInfoAboutFreelancer_FormClosed);
             this.Load += new System.EventHandler(this.FormInfoAboutFreelancer_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

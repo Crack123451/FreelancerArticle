@@ -230,6 +230,7 @@
             this.Controls.Add(this.labelLastName);
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.labelWhoYou);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "FormRegistration";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

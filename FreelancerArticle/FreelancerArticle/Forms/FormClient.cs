@@ -157,7 +157,7 @@ namespace FreelancerArticle
         {
             if (listBoxFeedback.SelectedIndex > -1)
             {
-                var f = new FormInfoAboutFreelancer(Login, listBoxFeedback.SelectedItem.ToString(), dataGridViewOrder.SelectedCells[0].OwningRow.Cells[0].Value.ToString());
+                var f = new FormInfoAboutFreelancer(Login, listBoxFeedback.SelectedItem.ToString(), dataGridViewOrder.SelectedCells[0].OwningRow.Cells[0].Value.ToString(), dataGridViewOrder.SelectedCells[0].OwningRow.Cells[6].Value.ToString());
                 f.ShowDialog();
             }
         }
@@ -189,9 +189,12 @@ namespace FreelancerArticle
             SqlDataReader sqlReader = null;
             SqlConnection sqlConnection = User.EnterToDatabase();
             await sqlConnection.OpenAsync();
+            SqlCommand commandDeleteFeedback = Feedback.DeleteFeedback(numberOrder);
             SqlCommand commandDeleteOrder = Order.DeleteOrder(numberOrder);
             try
             {
+                sqlReader = await commandDeleteFeedback.ExecuteReaderAsync();
+                sqlReader.Close();
                 sqlReader = await commandDeleteOrder.ExecuteReaderAsync();
             }
             catch (Exception ex)
